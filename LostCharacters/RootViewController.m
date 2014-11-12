@@ -25,6 +25,7 @@
 
 @interface RootViewController () <UITableViewDelegate, UITableViewDataSource, SINavigationMenuDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property BOOL editButton;
 @property NSManagedObjectContext *moc;
 @property NSArray *tableViewArray;
 
@@ -40,14 +41,13 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.moc = delegate.managedObjectContext;
 
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
-
+    self.tableView.allowsMultipleSelectionDuringEditing = YES;
 
 
     // check if we have a navigationItem
    if (self.navigationItem) {
         CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-        SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Sort options"];
+        SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Sort by Lost"];
         //Set in which view we will display a menu
         [menu displayMenuInView:self.view];
         //Create array of items
@@ -55,11 +55,6 @@
         menu.delegate = self;
         self.navigationItem.titleView = menu;
     }
-//    [self loadCoreData];
-//    if (self.tableViewArray.count == 0)
-//    {
-//    [self loadLostPlist];
-//    }
 
 }
 
@@ -75,6 +70,7 @@
 
 //MARK: Delegate methods
 
+//navigation bar menu selector for index
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
 //    NSLog(@"did selected item at index %lu", (unsigned long)index);
@@ -109,6 +105,10 @@
             break;
     }
 
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+// same thing, but puts under the nav bar
+//    [self.tableView setContentOffset:CGPointZero animated:YES];
+
 
 }
 
@@ -136,6 +136,9 @@
     cell.genderLabel.text = [lostMember valueForKey:@"gender"];
     cell.originLabel.text = [lostMember valueForKey:@"origin"];
 
+    cell.photoImageView.image = [UIImage imageNamed:[lostMember valueForKey:@"actor"]];
+    
+
     return cell;
 }
 
@@ -158,16 +161,20 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     NSString *deleteButtonName = @"SMOKE MONSTER";
     return deleteButtonName;
 }
 
 
-//MARK: Documents Directory
+
+
+//MARK: DLoading the .plist
 -(void)loadLostPlist
 {
-    NSURL *plistURL = [NSURL URLWithString:kPlistURL];
-//    NSURL *plistURL = [[self documentsDirectory]URLByAppendingPathComponent:@"pastes.plist"];
+//    NSURL *plistURL = [NSURL URLWithString:kPlistURL];
+    NSURL *plistURL = [[self documentsDirectory]URLByAppendingPathComponent:@"lost.plist"];
+
 
     NSArray *plistArray =[NSMutableArray arrayWithContentsOfURL:plistURL];
 //    self.adoredToothpaste = [NSMutableArray arrayWithContentsOfURL:plistURL];
@@ -191,10 +198,10 @@
         //there are only 2 fields populated in the original plist
         [lostMember setValue:plistArray[i][@"actor"] forKey:@"actor"];
         [lostMember setValue:plistArray[i][@"passenger"] forKey:@"passenger"];
-//        [lostMember setValue:plistArray[i][@""] forKey:@"age"];
-//        [lostMember setValue:plistArray[i][@""] forKey:@"dob"];
-//        [lostMember setValue:plistArray[i][@""] forKey:@"gender"];
-//        [lostMember setValue:plistArray[i][@""] forKey:@"origin"];
+        [lostMember setValue:plistArray[i][@"age"] forKey:@"age"];
+        [lostMember setValue:plistArray[i][@"dob"] forKey:@"dob"];
+        [lostMember setValue:plistArray[i][@"gender"] forKey:@"gender"];
+        [lostMember setValue:plistArray[i][@"origin"] forKey:@"origin"];
 
     //    int rand = arc4random_uniform(300)+1;
     //[trojan setValue:@(rand) forKey:@"age"];
@@ -220,6 +227,47 @@
     self.tableViewArray = [self.moc executeFetchRequest:request error:nil];
     [self.tableView reloadData];
 }
+
+//deleting multiple rows
+- (IBAction)onEditButtonPressed:(UIBarButtonItem *)editButton
+{
+    self.tableView.editing = YES;
+
+
+    if(!self.editButton)
+    {
+        self.editButton = YES;
+        editButton.title = @"Delete";
+        editButton.tintColor = [UIColor redColor];
+    }
+    else
+    {
+
+        NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
+        for (NSIndexPath *indexPath in selectedRows)
+        {
+            [self.moc deleteObject:self.tableViewArray[indexPath.row]];
+        }
+        [self loadCoreData:kActor];
+
+
+        self.editButton = NO;
+        editButton.title = @"Edit";
+        editButton.tintColor = [UIColor blueColor];
+        self.tableView.editing = NO;
+    }
+
+}
+
+//MARK: documets directory for storing my custom .plist
+-(NSURL *)documentsDirectory
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *url = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].firstObject;
+    return url;
+}
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

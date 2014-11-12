@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *dobLabel;
 @property (strong, nonatomic) IBOutlet UILabel *genderLabel;
 @property (strong, nonatomic) IBOutlet UILabel *originLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 
 @end

@@ -27,13 +27,13 @@
 		FA2DC6E61A12F68D00FE0272 /* SIMenuTable.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC6CF1A12F68D00FE0272 /* SIMenuTable.m */; };
 		FA2DC6E71A12F68D00FE0272 /* SINavigationMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC6D11A12F68D00FE0272 /* SINavigationMenuView.m */; };
 		FA2DC6E81A12F68D00FE0272 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC6D31A12F68D00FE0272 /* UIColor+Extension.m */; };
+		FA2DC6EB1A133BCD00FE0272 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2DC6EA1A133BCD00FE0272 /* Images.xcassets */; };
 		FA7865191A12DDB800092090 /* AddMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7865181A12DDB800092090 /* AddMemberViewController.m */; };
 		FA8F6E301A12BA6600D442DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8F6E2F1A12BA6600D442DD /* main.m */; };
 		FA8F6E331A12BA6600D442DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8F6E321A12BA6600D442DD /* AppDelegate.m */; };
 		FA8F6E361A12BA6600D442DD /* LostCharacters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA8F6E341A12BA6600D442DD /* LostCharacters.xcdatamodeld */; };
 		FA8F6E391A12BA6600D442DD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8F6E381A12BA6600D442DD /* RootViewController.m */; };
 		FA8F6E3C1A12BA6600D442DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8F6E3A1A12BA6600D442DD /* Main.storyboard */; };
-		FA8F6E3E1A12BA6600D442DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8F6E3D1A12BA6600D442DD /* Images.xcassets */; };
 		FA8F6E411A12BA6600D442DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8F6E3F1A12BA6600D442DD /* LaunchScreen.xib */; };
 		FA8F6E4D1A12BA6600D442DD /* LostCharactersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8F6E4C1A12BA6600D442DD /* LostCharactersTests.m */; };
 		FA8F6E581A12C1F400D442DD /* MemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8F6E571A12C1F400D442DD /* MemberTableViewCell.m */; };
@@ -79,6 +79,7 @@
 		FA2DC6D11A12F68D00FE0272 /* SINavigationMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SINavigationMenuView.m; sourceTree = "<group>"; };
 		FA2DC6D21A12F68D00FE0272 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		FA2DC6D31A12F68D00FE0272 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		FA2DC6EA1A133BCD00FE0272 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		FA7865171A12DDB800092090 /* AddMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMemberViewController.h; sourceTree = "<group>"; };
 		FA7865181A12DDB800092090 /* AddMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMemberViewController.m; sourceTree = "<group>"; };
 		FA8F6E2A1A12BA6600D442DD /* LostCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +91,6 @@
 		FA8F6E371A12BA6600D442DD /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		FA8F6E381A12BA6600D442DD /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		FA8F6E3B1A12BA6600D442DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FA8F6E3D1A12BA6600D442DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA8F6E401A12BA6600D442DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FA8F6E461A12BA6600D442DD /* LostCharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LostCharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8F6E4B1A12BA6600D442DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -200,7 +200,6 @@
 				FA7865171A12DDB800092090 /* AddMemberViewController.h */,
 				FA7865181A12DDB800092090 /* AddMemberViewController.m */,
 				FA8F6E591A12C1F700D442DD /* Model */,
-				FA8F6E3D1A12BA6600D442DD /* Images.xcassets */,
 				FA8F6E3F1A12BA6600D442DD /* LaunchScreen.xib */,
 				FA8F6E341A12BA6600D442DD /* LostCharacters.xcdatamodeld */,
 				FA8F6E2D1A12BA6600D442DD /* Supporting Files */,
@@ -237,6 +236,7 @@
 		FA8F6E591A12C1F700D442DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA2DC6EA1A133BCD00FE0272 /* Images.xcassets */,
 				FA8F6E561A12C1F400D442DD /* MemberTableViewCell.h */,
 				FA8F6E571A12C1F400D442DD /* MemberTableViewCell.m */,
 			);
@@ -326,13 +326,13 @@
 				FA2DC6D61A12F68D00FE0272 /* Default@2x.png in Resources */,
 				FA2DC6D81A12F68D00FE0272 /* InfoPlist.strings in Resources */,
 				FA2DC6DB1A12F68D00FE0272 /* logo.png in Resources */,
+				FA2DC6EB1A133BCD00FE0272 /* Images.xcassets in Resources */,
 				FA8F6E3C1A12BA6600D442DD /* Main.storyboard in Resources */,
 				FA2DC6D41A12F68D00FE0272 /* Default-568h@2x.png in Resources */,
 				FA8F6E411A12BA6600D442DD /* LaunchScreen.xib in Resources */,
 				FA2DC6D71A12F68D00FE0272 /* HAViewController.xib in Resources */,
 				FA2DC6E01A12F68D00FE0272 /* arrow_down1@2x.png in Resources */,
 				FA2DC6E11A12F68D00FE0272 /* arrow_down@2x.png in Resources */,
-				FA8F6E3E1A12BA6600D442DD /* Images.xcassets in Resources */,
 				FA2DC6D51A12F68D00FE0272 /* Default.png in Resources */,
 				FA2DC6DF1A12F68D00FE0272 /* arrow_down1.png in Resources */,
 				FA2DC6DE1A12F68D00FE0272 /* arrow_down.png in Resources */,
