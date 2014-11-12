@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AddMemberViewController.h
 //  LostCharacters
 //
 //  Created by Alex on 11/11/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface AddMemberViewController : UIViewController
 
 @end
-
